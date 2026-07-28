@@ -270,6 +270,9 @@ main{position:relative;z-index:10}
 .slate-list li{padding-left:18px;position:relative}
 .slate-list li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--dim-2)}
 .slate-list.awards li::before{background:var(--glow);width:7px;height:7px;border-radius:50%;top:.5em}
+.slate-list.credits li::before{display:none}
+.slate-list.credits li{padding-left:0}
+.slate-list.credits .cr-role{color:var(--dim);display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1px}
 .specrow{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;
   color:var(--bone-2);padding:22px 0 0}
 .specrow .sep{color:var(--dim-2)}
@@ -498,15 +501,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       heroImage:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795209/IMG_0610_cglwpp.png",
       images:[
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795207/IMG_0613_kbgzqn.png",
-        "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795213/IMG_0614_xextmx.png",
-        "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795214/IMG_0608_pe6lpg.png",
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795209/IMG_0610_cglwpp.png",
+        "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795214/IMG_0608_pe6lpg.png",
+        "https://res.cloudinary.com/donh9lzsj/image/upload/v1785233795/WhatsApp_Image_2026-07-27_at_13.06.58_rwasig.jpg",
       ],
       selHead:"Official Selection — In Competition",
-      selection:["23rd Giornate degli Autori","82nd Venice International Film Festival"],
+      selection:["23rd Giornate degli Autori","83rd Venice International Film Festival"],
       note:"First Nigerian production selected for the Giornate degli Autori competition.",
       logline:"Set in 1990s Southwestern Nigeria, Dear Ajayi follows estranged sisters Ade and Titi Ajayi, whose vastly different lives collide when they are forced to care for their paralysed mother.",
-      trailer:"#",
       festivals:[], awards:[],
     },
     {
@@ -514,6 +516,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       title:"All the Colors of the World Are Between Black and White",
       year:"2023", format:"Fiction Feature", runtime:"93 min", country:"Nigeria",
       hue:212, ratio:"1.85 : 1", stills:4,
+      director:"Babatunde Apalowo",
+      coProduced:["Polymath Pictures","Realm 360 Productions","Creative Black Productions"],
+      logline:"Bambino and Bawa meet in Lagos and hit it off immediately. During their long trips around the city, they develop a deep affection for each other. But in a society which considers homosexuality taboo, they feel the pressure of social norms.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784792755/ATCW2_1.10.1_cnlsgu.jpg",
       images:[
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784792756/ATCW2_1.4.1_izbiux.jpg",
@@ -525,12 +530,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
         "Frameline","Cinema Jove","BlackStar","Melbourne IFF","Thessaloniki IFF","Mostra São Paulo"],
       awards:["Teddy Award — Best Feature · Berlinale","Out in the Silence Award · Frameline",
         "Best Music · Cinema Jove","Special Jury Prize · Mix Mexico","Special Jury Prize · AFRIFF"],
-      trailer:"#",
+      trailer:"https://www.youtube.com/watch?v=2BUaz3qPB0I",
     },
     {
       slug:"for-maria", title:"For Maria Ebun Pataki",
       year:"2020", format:"Fiction Feature", runtime:"76 min", country:"Nigeria",
       hue:8, ratio:"1.85 : 1", stills:4,
+      logline:"After a complicated delivery, a mother struggles with postpartum depression and begins to withdraw from her family and the world around her.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784794439/FMStill_1_azfqjv.png",
       images:[
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784794434/FMStill_4_cqkww0.png",
@@ -540,29 +546,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       ],
       festivals:["Film Africa · World Premiere","New York African Film Festival","Fespaco","Mostra São Paulo"],
       awards:["Audience Award — Best Narrative · Film Africa","Best Editing · African Movies Viewers Choice Award"],
-      trailer:"#",
+      trailer:"https://www.youtube.com/watch?v=QfqYVSemTbE&t=4s",
     },
     { slug:"third-term", title:"Third Term", status:"post", mini:true,
-      hue:330, stills:2, festivals:[], awards:[] },
+      hue:330, stills:2,
+      director:"KC Obiajulu", coProduced:"4th Slide",
+      logline:"As a powerful politician seeks another term in office, an ordinary man takes him hostage, forcing both men to confront the cost of failed leadership and the limits of justice.",
+      festivals:[], awards:[] },
     {
       slug:"losing-my-religion", title:"Losing my Religion", mini:true,
       year:"2018", format:"Short Fiction", runtime:"15 min", country:"Nigeria",
       hue:268, ratio:"1.85 : 1", stills:1,
+      logline:"Júnior is forced into religious devotion with devastating consequences.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795757/LMR_5_ijstaj.png",
       images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795750/LMR_4_visxgo.png"],
       festivals:["Film Africa","Pan African Film Festival","AFRIFF","Indie Short Fest","Mostra São Paulo"],
       awards:[],
-      trailer:"#",
+      trailer:"https://www.youtube.com/watch?v=Z7kXtQmGars&t=23s",
     },
-    { slug:"hebrew", title:"Hebrew", status:"post", mini:true, country:"Nigeria", hue:150, ratio:"2.39 : 1", stills:2, festivals:[], awards:[] },
-    { slug:"mo", title:"Mo", year:"2017", format:"Short Fiction", country:"Nigeria", hue:190, stills:1, mini:true,
+    { slug:"hebrew", title:"Hebrew", status:"post", mini:true, country:"Nigeria", hue:150, ratio:"2.39 : 1", stills:2,
+      director:"Ajah Enene-Orimogunje",
+      logline:"A woman in early labour whose severe pre-eclampsia demands an urgent caesarean section, and a husband who stands as the custodian of their faith.",
+      festivals:[], awards:[] },
+    { slug:"mo", title:"Mo", year:"2017", format:"Short Fiction", runtime:"21 min", country:"Nigeria", hue:190, stills:1, mini:true,
+      logline:"A teenage hooker seeks redemption from her aunt, a vicious pimp who is not ready to liberate her.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795694/IMG_0117_wbphvr.png",
       images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795692/IMG_0114_drdmtk.png"],
-      trailer:"#", festivals:[], awards:[] },
-    { slug:"family", title:"Family", year:"2016", format:"Short Fiction", country:"Nigeria", hue:28, stills:1, mini:true,
+      trailer:"https://www.youtube.com/watch?v=YZg0sV-ACWA", festivals:[], awards:[] },
+    { slug:"family", title:"Family", year:"2016", format:"Short Fiction", runtime:"10 min", country:"Nigeria", hue:28, stills:1, mini:true,
+      logline:"A troubled man fights the violent impulses threatening to turn him against the family he loves.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795566/IMG_1179_qin31k.png",
       images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795563/IMG_1186_wjnl0q.png"],
-      trailer:"#", festivals:[], awards:[] },
+      trailer:"https://vimeo.com/219851975", festivals:[], awards:[] },
   ];
   const STATUS = {
     coming:{ tag:"Coming soon", spec:"In development",
@@ -641,7 +656,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
         ${heroImg?`<div class="hero-bg" style="--bg:url('${heroImg}')"></div>`:""}
         <div class="leak"></div>
         <div class="hero-inner">
-          <p class="eyebrow">2o9ine Films — an auteur studio · Lagos, Nigeria</p>
+          <p class="eyebrow">An auteur studio · Lagos, Nigeria</p>
           <h1 class="hero-line">${heroLine}</h1>
           <p class="hero-sub">Emotionally resonant, visually compelling cinema rooted in African experience — made for audiences at home and across the world.</p>
         </div>
@@ -768,6 +783,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
            <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM10.6219 8.41459L15.5008 11.6672C15.6846 11.7897 15.7343 12.0381 15.6117 12.2219C15.5824 12.2658 15.5447 12.3035 15.5008 12.3328L10.6219 15.5854C10.4381 15.708 10.1897 15.6583 10.0672 15.4745C10.0234 15.4088 10 15.3316 10 15.2526V8.74741C10 8.52649 10.1791 8.34741 10.4 8.34741C10.479 8.34741 10.5562 8.37078 10.6219 8.41459Z"></path></svg></span> Watch trailer
          </a>` : "";
 
+    // credits slate — director / production partners, shown when present
+    const creditRows = [];
+    if(f.director) creditRows.push(`<li><span class="cr-role">Directed by</span> ${esc(f.director)}</li>`);
+    if(f.coProduced){
+      const partners = Array.isArray(f.coProduced) ? f.coProduced : [f.coProduced];
+      creditRows.push(`<li><span class="cr-role">Co-produced with</span> ${partners.map(esc).join("<br>")}</li>`);
+    }
+    const creditsHtml = creditRows.length
+      ? `<div class="slate-block"><h4>Credits</h4><ul class="slate-list credits">${creditRows.join("")}</ul></div>` : "";
+
     return `<section class="view"><div class="wrap">
       <div class="detail-head">
         <a class="back" href="#/films">← All films</a>
@@ -778,7 +803,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       ${specRow}
       <div class="detail-grid">
         <div>${selectionBlock(f, true)}${synopsis}${trailerBtn}</div>
-        <div>${awardHtml}${festHtml}${(!festHtml&&!awardHtml&&!(f.selection&&f.selection.length))?`<div class="slate-block"><h4>Status</h4><ul class="slate-list"><li>${esc((stat(f)||{}).slate||"In development — festival run to be announced")}</li></ul></div>`:""}
+        <div>${creditsHtml}${awardHtml}${festHtml}${(!festHtml&&!awardHtml&&!(f.selection&&f.selection.length))?`<div class="slate-block"><h4>Status</h4><ul class="slate-list"><li>${esc((stat(f)||{}).slate||"In development — festival run to be announced")}</li></ul></div>`:""}
         ${(f.selection&&f.selection.length)?`<div class="slate-block"><h4>Premiere</h4><ul class="slate-list"><li>Venice, 2–12 September 2026</li></ul></div>`:""}</div>
       </div>
       ${stripCount?`<div class="stills-strip">
