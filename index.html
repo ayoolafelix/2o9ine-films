@@ -299,6 +299,13 @@ main{position:relative;z-index:10}
 .contact a.mail{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,6vw,4.5rem);line-height:1;
   display:inline-block;position:relative;transition:color .35s}
 .contact a.mail:hover{color:var(--glow)}
+.socials{display:flex;flex-wrap:wrap;gap:14px 34px;margin-top:36px}
+.socials a{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bone-2);
+  display:inline-flex;align-items:baseline;gap:9px;transition:color .3s}
+.socials a:hover{color:var(--glow)}
+.socials .handle{color:var(--dim);letter-spacing:.06em;text-transform:none;transition:color .3s}
+.socials a:hover .handle{color:var(--glow)}
+@media (max-width:640px){ .socials{flex-direction:column;gap:12px} }
 
 /* trailer button — inherits .btn, adds a gold play glyph */
 .btn.trailer{margin-top:30px}
@@ -498,7 +505,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       year:"2026", format:"Fiction Feature", runtime:"120 min", country:"Nigeria / Germany",
       hue:36, ratio:"2.39 : 1", stills:4,
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795212/Still_2026-07-16_201821_1.87.3_adefpj.png",
-      heroImage:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795209/IMG_0610_cglwpp.png",
+      heroImage:"https://res.cloudinary.com/donh9lzsj/image/upload/v1785334500/WhatsApp_Image_2026-07-29_at_12.39.09_wpy6op.jpg",
       images:[
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795207/IMG_0613_kbgzqn.png",
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795209/IMG_0610_cglwpp.png",
@@ -507,7 +514,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       ],
       selHead:"Official Selection — In Competition",
       selection:["23rd Giornate degli Autori","83rd Venice International Film Festival"],
-      note:"First Nigerian production selected for the Giornate degli Autori competition.",
+      note:"First Nigerian production selected for the Giornate degli Autori",
       logline:"Set in 1990s Southwestern Nigeria, Dear Ajayi follows estranged sisters Ade and Titi Ajayi, whose vastly different lives collide when they are forced to care for their paralysed mother.",
       festivals:[], awards:[],
     },
@@ -558,6 +565,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       year:"2018", format:"Short Fiction", runtime:"15 min", country:"Nigeria",
       hue:268, ratio:"1.85 : 1", stills:1,
       logline:"Júnior is forced into religious devotion with devastating consequences.",
+      trailerLabel:"Watch film",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795757/LMR_5_ijstaj.png",
       images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795750/LMR_4_visxgo.png"],
       festivals:["Film Africa","Pan African Film Festival","AFRIFF","Indie Short Fest","Mostra São Paulo"],
@@ -780,7 +788,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
     // trailer link — "#" is a placeholder until a real URL is dropped in
     const trailerBtn = f.trailer
       ? `<a class="btn trailer" href="${esc(f.trailer)}"${f.trailer.startsWith("http")?' target="_blank" rel="noopener"':""}>
-           <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM10.6219 8.41459L15.5008 11.6672C15.6846 11.7897 15.7343 12.0381 15.6117 12.2219C15.5824 12.2658 15.5447 12.3035 15.5008 12.3328L10.6219 15.5854C10.4381 15.708 10.1897 15.6583 10.0672 15.4745C10.0234 15.4088 10 15.3316 10 15.2526V8.74741C10 8.52649 10.1791 8.34741 10.4 8.34741C10.479 8.34741 10.5562 8.37078 10.6219 8.41459Z"></path></svg></span> Watch trailer
+           <span class="play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM10.6219 8.41459L15.5008 11.6672C15.6846 11.7897 15.7343 12.0381 15.6117 12.2219C15.5824 12.2658 15.5447 12.3035 15.5008 12.3328L10.6219 15.5854C10.4381 15.708 10.1897 15.6583 10.0672 15.4745C10.0234 15.4088 10 15.3316 10 15.2526V8.74741C10 8.52649 10.1791 8.34741 10.4 8.34741C10.479 8.34741 10.5562 8.37078 10.6219 8.41459Z"></path></svg></span> ${esc(f.trailerLabel || "Watch trailer")}
          </a>` : "";
 
     // credits slate — director / production partners, shown when present
@@ -803,7 +811,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       ${specRow}
       <div class="detail-grid">
         <div>${selectionBlock(f, true)}${synopsis}${trailerBtn}</div>
-        <div>${creditsHtml}${awardHtml}${festHtml}${(!festHtml&&!awardHtml&&!(f.selection&&f.selection.length))?`<div class="slate-block"><h4>Status</h4><ul class="slate-list"><li>${esc((stat(f)||{}).slate||"In development — festival run to be announced")}</li></ul></div>`:""}
+        <div>${creditsHtml}${awardHtml}${festHtml}${(stat(f)&&!festHtml&&!awardHtml&&!(f.selection&&f.selection.length))?`<div class="slate-block"><h4>Status</h4><ul class="slate-list"><li>${esc((stat(f)||{}).slate||"Festival run to be announced")}</li></ul></div>`:""}
         ${(f.selection&&f.selection.length)?`<div class="slate-block"><h4>Premiere</h4><ul class="slate-list"><li>Venice, 2–12 September 2026</li></ul></div>`:""}</div>
       </div>
       ${stripCount?`<div class="stills-strip">
@@ -834,6 +842,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       <div class="contact rv">
         <p class="eyebrow">For collaborations, partnerships & production inquiries</p>
         <a class="mail" href="mailto:hello@2o9inefilms.com">hello@2o9inefilms.com</a>
+        <div class="socials">
+          <a href="https://instagram.com/2o9inefilms" target="_blank" rel="noopener">Instagram <span class="handle">@2o9inefilms</span></a>
+          <a href="https://x.com/2o9inefilms" target="_blank" rel="noopener">X <span class="handle">@2o9inefilms</span></a>
+          <a href="https://youtube.com/@2o9inefilms" target="_blank" rel="noopener">YouTube <span class="handle">@2o9inefilms</span></a>
+        </div>
       </div>
       <div class="signup rv">
         <div class="signup-copy">
