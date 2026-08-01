@@ -189,8 +189,6 @@ main{position:relative;z-index:10}
   letter-spacing:.14em;text-transform:uppercase;color:var(--bone-2);display:flex;gap:10px;align-items:center}
 /* placeholders need their caption; a real photograph doesn't */
 .still[data-real] .slate{display:none}
-.still .ratio{position:absolute;right:14px;top:12px;z-index:2;font-family:var(--mono);font-size:9px;
-  letter-spacing:.1em;color:var(--dim);opacity:.8}
 .still .dot{width:6px;height:6px;border-radius:50%;background:var(--glow);box-shadow:0 0 10px var(--glow)}
 
 .btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;
@@ -245,6 +243,11 @@ main{position:relative;z-index:10}
 .mini .spec{margin-top:6px}
 .mini a{display:block}
 .mini a:hover h3{color:var(--glow)}
+/* post-production cards have no still — a hairline frame keeps them deliberate */
+.mini a.no-still{border:1px solid var(--line);padding:26px 24px;min-height:150px;
+  display:flex;flex-direction:column;justify-content:flex-end;transition:border-color .3s}
+.mini a.no-still:hover{border-color:var(--line-2)}
+.mini a.no-still h3{margin-top:0}
 
 .upcoming{border-top:1px solid var(--line);padding:48px 0;display:flex;justify-content:space-between;
   align-items:baseline;gap:20px;flex-wrap:wrap}
@@ -406,7 +409,6 @@ footer a:hover{color:var(--bone)}
   /* cinema crops get too thin to read on a phone — open them up */
   .still[data-shape="cinema"]{aspect-ratio:16/9}
   .still .slate{left:10px;bottom:9px;font-size:9px}
-  .still .ratio{right:10px;top:9px}
   .page-head{padding:calc(var(--gate) + 96px) 0 30px}
   .detail-head{padding:calc(var(--gate) + 84px) 0 0}
   .about-head{padding:calc(var(--gate) + 104px) 0 0}
@@ -504,8 +506,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       slug:"dear-ajayi", title:"Dear Ajayi", hero:true,
       year:"2026", format:"Fiction Feature", runtime:"120 min", country:"Nigeria / Germany",
       hue:36, ratio:"2.39 : 1", stills:4,
-      poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795212/Still_2026-07-16_201821_1.87.3_adefpj.png",
-      heroImage:"https://res.cloudinary.com/donh9lzsj/image/upload/v1785334500/WhatsApp_Image_2026-07-29_at_12.39.09_wpy6op.jpg",
+      poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1785334500/WhatsApp_Image_2026-07-29_at_12.39.09_wpy6op.jpg",
+      heroImage:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795212/Still_2026-07-16_201821_1.87.3_adefpj.png",
       images:[
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795207/IMG_0613_kbgzqn.png",
         "https://res.cloudinary.com/donh9lzsj/image/upload/v1784795209/IMG_0610_cglwpp.png",
@@ -556,7 +558,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       trailer:"https://www.youtube.com/watch?v=QfqYVSemTbE&t=4s",
     },
     { slug:"third-term", title:"Third Term", status:"post", mini:true,
-      hue:330, stills:2,
+      hue:330, ratio:"2.39 : 1", stills:2,
       director:"KC Obiajulu", coProduced:"4th Slide",
       logline:"As a powerful politician seeks another term in office, an ordinary man takes him hostage, forcing both men to confront the cost of failed leadership and the limits of justice.",
       festivals:[], awards:[] },
@@ -566,8 +568,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       hue:268, ratio:"1.85 : 1", stills:1,
       logline:"Júnior is forced into religious devotion with devastating consequences.",
       trailerLabel:"Watch film",
-      poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795757/LMR_5_ijstaj.png",
-      images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795750/LMR_4_visxgo.png"],
+      poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795750/LMR_4_visxgo.png",
+      images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795757/LMR_5_ijstaj.png"],
       festivals:["Film Africa","Pan African Film Festival","AFRIFF","Indie Short Fest","Mostra São Paulo"],
       awards:[],
       trailer:"https://www.youtube.com/watch?v=Z7kXtQmGars&t=23s",
@@ -576,12 +578,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       director:"Ajah Enene-Orimogunje",
       logline:"A woman in early labour whose severe pre-eclampsia demands an urgent caesarean section, and a husband who stands as the custodian of their faith.",
       festivals:[], awards:[] },
-    { slug:"mo", title:"Mo", year:"2017", format:"Short Fiction", runtime:"21 min", country:"Nigeria", hue:190, stills:1, mini:true,
+    { slug:"mo", title:"Mo", year:"2017", format:"Short Fiction", runtime:"21 min", country:"Nigeria", hue:190, ratio:"2.39 : 1", stills:1, mini:true,
       logline:"A teenage hooker seeks redemption from her aunt, a vicious pimp who is not ready to liberate her.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795694/IMG_0117_wbphvr.png",
       images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795692/IMG_0114_drdmtk.png"],
       trailer:"https://www.youtube.com/watch?v=YZg0sV-ACWA", festivals:[], awards:[] },
-    { slug:"family", title:"Family", year:"2016", format:"Short Fiction", runtime:"10 min", country:"Nigeria", hue:28, stills:1, mini:true,
+    { slug:"family", title:"Family", year:"2016", format:"Short Fiction", runtime:"10 min", country:"Nigeria", hue:28, ratio:"2.39 : 1", stills:1, mini:true,
       logline:"A troubled man fights the violent impulses threatening to turn him against the family he loves.",
       poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1784795566/IMG_1179_qin31k.png",
       images:["https://res.cloudinary.com/donh9lzsj/image/upload/v1784795563/IMG_1186_wjnl0q.png"],
@@ -616,6 +618,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
   // n given  = that numbered still in the strip.
   const pickImage = (f,n) => (n ? (f.images && f.images[n-1])
                                 : (f.poster || (f.images && f.images[0]))) || null;
+  const hasStill = f => !!(f.poster || (f.images && f.images.length));
   function stillSrc(f,n,shape){
     const url = pickImage(f,n);
     return url ? cld(url, CLD_W[shape]||1400) : `stills/${f.slug}-still-${n||1}.jpg`;
@@ -625,7 +628,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
     const real = !!pickImage(f,n);
     return `<div class="still"${real?" data-real":""} data-shape="${shape}" style="--grad:${grad(f.hue)};--img:url('${stillSrc(f,n,shape)}')">
       <span class="glowline"></span>
-      ${f.ratio?`<span class="ratio">${esc(f.ratio)}</span>`:""}
       <span class="slate"><span class="dot"></span>${label||("STILL — "+f.title.toUpperCase())}</span>
     </div>`;
   }
@@ -722,8 +724,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
     // shorts cards — no festivals here, just title + spec
     const card = f => {
       const st = stat(f);
-      return `<a href="#/films/${f.slug}" aria-label="${esc(f.title)}">
-        ${still(f,"3/2")}
+      return `<a href="#/films/${f.slug}"${hasStill(f)?"":' class="no-still"'} aria-label="${esc(f.title)}">
+        ${hasStill(f)?still(f,"3/2"):""}
         <h3>${esc(f.title)}</h3>
         <div class="spec">${st?[f.country,st.spec].filter(Boolean).map(esc).join(' <span class="sep">/</span> '):specLine(f)}</div>
       </a>`;
@@ -762,7 +764,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
     //  • Placeholder film (no poster): hero draws slot 1, so the strip starts at
     //    slot 2 to avoid showing the same frame twice.
     const hasImgs = !!(f.images && f.images.length);
-    const stillsN = hasImgs ? f.images.length : (f.stills || 2);
+    const stillsN = hasImgs ? f.images.length : (hasStill(f) ? (f.stills || 2) : 0);
     const first = (hasImgs || f.poster) ? 1 : 2;
     const nums = [];
     for(let n=first; n<=stillsN; n++) nums.push(n);
@@ -776,7 +778,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       ? `<div class="slate-block"><h4>Awards</h4><ul class="slate-list awards">${f.awards.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>` : "";
 
     const specRow = coming
-      ? `<div class="specrow">${[f.country,f.ratio].filter(Boolean).map(esc).join(' <span class="sep">/</span> ')}</div>`
+      ? `<div class="specrow">${[f.country].filter(Boolean).map(esc).join(' <span class="sep">/</span> ')}</div>`
       : `<div class="specrow">${[f.year,f.format,f.runtime,f.country].filter(Boolean).map(esc).join(' <span class="sep">/</span> ')}</div>`;
 
     const synopsis = f.logline
@@ -805,7 +807,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       <div class="detail-head">
         <a class="back" href="#/films">← All films</a>
         ${coming?`<span class="tag" style="margin-bottom:24px;display:inline-block">${esc(st.tag)}</span>`:""}
-        ${still(f,"2.39/1", coming?`${f.title.toUpperCase()} — FIRST LOOK`:`STILL — ${f.title.toUpperCase()}`)}
+        ${hasStill(f)?still(f,"2.39/1", coming?`${f.title.toUpperCase()} — FIRST LOOK`:`STILL — ${f.title.toUpperCase()}`):""}
       </div>
       <div class="detail-title"><h1>${esc(f.title)}</h1></div>
       ${specRow}
