@@ -543,6 +543,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
       trailer:"https://www.youtube.com/watch?v=2BUaz3qPB0I",
     },
     {
+      slug:"a-burial-for-kulu-yandaki", title:"A Burial for Kulu Yandaki", status:"coming",
+      country:"Nigeria", ctaLabel:"View film",
+      hue:24, ratio:"2.39 : 1", stills:1,
+      poster:"https://res.cloudinary.com/donh9lzsj/image/upload/v1786459149/WhatsApp_Image_2026-08-11_at_15.17.01_jwijvz.jpg",
+      director:"Theo-Ziny Joel",
+      producedBy:["Zinifrica Moving Image","2o9ine Films"],
+      coProduced:["Abazee Productions","Gozing Global Resources"],
+      logline:"When a restless corpse refuses to stay buried, a broke, drunken father and his wayward son must set aside their hatred and carry her coffin on foot through a chaotic journey to fulfill his wife's final wish.",
+      festivals:[], awards:[],
+    },
+    {
       slug:"for-maria", title:"For Maria Ebun Pataki",
       year:"2020", format:"Fiction Feature", runtime:"76 min", country:"Nigeria",
       hue:8, ratio:"1.85 : 1", stills:4,
@@ -717,7 +728,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
                   :`<div class="spec">${specLine(f)}</div>`}
           ${selectionBlock(f, true)}
           ${laurels.length?`<div class="laurels">${laurels.join("<br>")}</div>`:""}
-          <a class="btn" href="#/films/${f.slug}">${coming?"Enter the world":"View film"} <span class="arw">→</span></a>
+          <a class="btn" href="#/films/${f.slug}">${coming&&!f.ctaLabel?"Enter the world":(f.ctaLabel||"View film")} <span class="arw">→</span></a>
         </div>
       </article>`;
     }).join("");
@@ -797,6 +808,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
     // credits slate — director / production partners, shown when present
     const creditRows = [];
     if(f.director) creditRows.push(`<li><span class="cr-role">Directed by</span> ${esc(f.director)}</li>`);
+    if(f.producedBy){
+      const prod = Array.isArray(f.producedBy) ? f.producedBy : [f.producedBy];
+      creditRows.push(`<li><span class="cr-role">Production companies</span> ${prod.map(esc).join("<br>")}</li>`);
+    }
     if(f.coProduced){
       const partners = Array.isArray(f.coProduced) ? f.coProduced : [f.coProduced];
       creditRows.push(`<li><span class="cr-role">Co-produced with</span> ${partners.map(esc).join("<br>")}</li>`);
