@@ -3,15 +3,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Read the raw body and forward it directly to Substack
   const chunks = [];
   for await (const chunk of req) chunks.push(chunk);
-  const raw = Buffer.concat(chunks).toString();
-  const params = new URLSearchParams(raw);
-
-  const body = new URLSearchParams();
-  for (const [key, value] of params) {
-    body.append(key, value);
-  }
+  const rawBody = Buffer.concat(chunks).toString();
 
   try {
     const r = await fetch(
@@ -28,15 +23,22 @@ export default async function handler(req, res) {
           Referer: "https://dearajayi.substack.com/embed",
           Origin: "https://dearajayi.substack.com",
         },
-        body: body.toString(),
+        body: rawBody,
       }
     );
+
+    const text = await r.text();
 
     if (r.ok || r.status === 302) {
       return res.redirect(302, "/#/about");
     }
 
-    return res.status(r.status).json({ error: "Substack returned an error" });
+    // Log the actual Substack response for debugging
+    return res.status(r.status).json({
+      error: "Substack returned an error",
+      substackStatus: r.status,
+      substackBody: text.substring(0, 200),
+    });
   } catch (err) {
     return res.status(500).json({ error: "Failed to reach Substack" });
   }
