@@ -890,15 +890,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
           <h2>Stay in the picture</h2>
           <p>News on premieres, festival dates and new work from the studio — straight to your inbox.</p>
         </div>
-        <div class="signup-form">
-          <form action="https://dearajayi.substack.com/api/v1/free" method="post" target="substack-sink">
-            <input id="nl-email" type="email" name="email" inputmode="email" autocomplete="email"
-                   placeholder="your@email.com" aria-label="Email address" required>
-            <button type="submit">Subscribe <span class="arw">→</span></button>
-          </form>
+        <form class="signup-form" action="https://dearajayi.substack.com/api/v1/free" method="post" target="substack-sink">
+          <input id="nl-email" type="email" name="email" inputmode="email" autocomplete="email"
+                 placeholder="your@email.com" aria-label="Email address" required>
+          <button type="submit">Subscribe <span class="arw">→</span></button>
           <iframe name="substack-sink" style="display:none"></iframe>
-          <p class="signup-msg" id="nl-msg" role="status" aria-live="polite"></p>
-        </div>
+        </form>
       </div>
     </div></section>`;
   }
