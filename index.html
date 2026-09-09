@@ -338,24 +338,9 @@ main{position:relative;z-index:10}
 .signup-copy h2{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1;
   font-size:clamp(1.9rem,3.6vw,2.8rem)}
 .signup-copy p{color:var(--bone-2);margin-top:16px;max-width:36ch}
-.signup-form{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.signup-form input{flex:1 1 240px;min-width:0;background:var(--ink-2);color:var(--bone);
-  border:1px solid var(--line-2);border-radius:2px;padding:15px 16px;
-  font-family:var(--mono);font-size:12px;letter-spacing:.04em;transition:border-color .3s}
-.signup-form input::placeholder{color:var(--dim)}
-.signup-form input:focus{outline:none;border-color:var(--glow)}
-.signup-form button{background:var(--glow);color:#000;border:0;border-radius:2px;cursor:pointer;
-  padding:15px 22px;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:10px;transition:opacity .3s,transform .3s}
-.signup-form button:hover{opacity:.88}
-.signup-form button:disabled{opacity:.5;cursor:default}
-.signup-form button .arw{transition:transform .35s var(--ease)}
-.signup-form button:hover .arw{transform:translateX(4px)}
-.signup-msg{flex-basis:100%;margin:0;min-height:1.2em;font-family:var(--mono);font-size:11px;
-  letter-spacing:.03em}
-.signup-msg.good{color:var(--glow)}
-.signup-msg.bad{color:#d98a6a}
-@media (max-width:820px){ .signup{grid-template-columns:1fr;gap:28px;padding:7vh 0 9vh} }
+.signup-form{display:flex;justify-content:flex-end}
+.signup-form iframe{width:480px;height:320px;max-width:100%;display:block}
+@media (max-width:820px){ .signup{grid-template-columns:1fr;gap:28px;padding:7vh 0 9vh} .signup-form{justify-content:center} }
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--line);padding:40px calc(var(--gate) + var(--pad)) calc(var(--gate) + 40px);
@@ -890,22 +875,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
           <h2>Stay in the picture</h2>
           <p>News on premieres, festival dates and new work from the studio — straight to your inbox.</p>
         </div>
-        <form class="signup-form" action="https://dearajayi.substack.com/api/v1/free" method="post" target="substack-sink">
-          <input type="hidden" name="first_url" value="https://dearajayi.substack.com/" />
-          <input type="hidden" name="first_referrer" value="https://2o9ine.com" />
-          <input type="hidden" name="current_url" value="https://dearajayi.substack.com/" />
-          <input type="hidden" name="current_referrer" value="https://2o9ine.com" />
-          <input type="hidden" name="first_session_url" value="https://dearajayi.substack.com/" />
-          <input type="hidden" name="first_session_referrer" value="https://2o9ine.com" />
-          <input type="hidden" name="referral_code" />
-          <input type="hidden" name="source" value="embed" />
-          <input type="hidden" name="referring_pub_id" />
-          <input type="hidden" name="additional_referring_pub_ids" />
-          <input id="nl-email" type="email" name="email" inputmode="email" autocomplete="email"
-                 placeholder="your@email.com" aria-label="Email address" required>
-          <button type="submit">Subscribe <span class="arw">→</span></button>
-        </form>
-        <iframe name="substack-sink" style="display:none"></iframe>
+        <div class="signup-form">
+          <iframe src="https://dearajayi.substack.com/embed" width="480" height="320" style="border:0; background:var(--ink-2); border-radius:6px; overflow:hidden" frameborder="0" scrolling="no"></iframe>
+        </div>
       </div>
     </div></section>`;
   }
