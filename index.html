@@ -886,7 +886,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
           <h2>Stay in the picture</h2>
           <p>News on premieres, festival dates and new work from the studio — straight to your inbox.</p>
         </div>
-        <form class="signup-form" id="nl-form" action="https://dearajayi.substack.com/api/v1/free" method="post" target="substack-sink">
+        <form class="signup-form" id="nl-form" action="/api/subscribe" method="post" target="_self">
           <input type="hidden" name="first_url" value="https://dearajayi.substack.com/" />
           <input type="hidden" name="first_referrer" value="https://2o9ine.com" />
           <input type="hidden" name="current_url" value="https://dearajayi.substack.com/" />
@@ -902,10 +902,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
           <button type="submit">Subscribe <span class="arw">→</span></button>
         </form>
         <iframe name="substack-sink" style="display:none"></iframe>
-        <iframe id="substack-prime" src="https://dearajayi.substack.com/embed"
-                sandbox="allow-scripts allow-forms allow-same-origin"
-                style="position:absolute;width:1px;height:1px;opacity:0;border:0;overflow:hidden"
-                aria-hidden="true" tabindex="-1"></iframe>
       </div>
     </div></section>`;
   }
