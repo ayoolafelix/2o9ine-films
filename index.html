@@ -891,7 +891,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
           <p>News on premieres, festival dates and new work from the studio — straight to your inbox.</p>
         </div>
         <div class="signup-form">
-          <iframe src="https://dearajayi.substack.com/embed" width="480" height="320" style="border: 1px solid #EEE; background: white" frameborder="0" scrolling="no"></iframe>
+          <form action="https://dearajayi.substack.com/api/v1/free" method="post" target="substack-sink">
+            <input id="nl-email" type="email" name="email" inputmode="email" autocomplete="email"
+                   placeholder="your@email.com" aria-label="Email address" required>
+            <button type="submit">Subscribe <span class="arw">→</span></button>
+          </form>
+          <iframe name="substack-sink" style="display:none"></iframe>
+          <p class="signup-msg" id="nl-msg" role="status" aria-live="polite"></p>
         </div>
       </div>
     </div></section>`;
@@ -938,34 +944,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
     frameReg.textContent = reg;
     window.scrollTo(0,0);
     initReveal();
-    initSignup();
   }
 
-  /* newsletter — validates client-side; POSTs to a provider once configured.
-     Set NEWSLETTER_ENDPOINT to your form action (Mailchimp/Buttondown/Formspree)
-     and this starts submitting for real. Until then it validates and confirms. */
-  const NEWSLETTER_ENDPOINT = ""; // e.g. "https://buttondown.email/api/emails/embed-subscribe/2o9ine"
-  function initSignup(){
-    const input=document.getElementById("nl-email");
-    const btn=document.getElementById("nl-btn");
-    const msg=document.getElementById("nl-msg");
-    if(!input||!btn) return;
-    const ok=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-    const say=(t,good)=>{ msg.textContent=t; msg.className="signup-msg"+(good?" good":" bad"); };
-    async function submit(){
-      const email=input.value.trim();
-      if(!ok(email)){ say("Please enter a valid email address.",false); input.focus(); return; }
-      btn.disabled=true;
-      if(NEWSLETTER_ENDPOINT){
-        try{
-          const body=new FormData(); body.append("email",email);
-          await fetch(NEWSLETTER_ENDPOINT,{method:"POST",body,mode:"no-cors"});
-          say("You're on the list — thank you.",true); input.value="";
-        }catch(e){ say("Something went wrong. Please try again.",false); }
-      }else{
-        // no provider wired yet — confirm locally so the UI is testable
-        say("You're on the list — thank you.",true); input.value="";
-      }
+
       btn.disabled=false;
     }
     btn.addEventListener("click",submit);
