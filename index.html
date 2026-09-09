@@ -891,11 +891,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offse
           <p>News on premieres, festival dates and new work from the studio — straight to your inbox.</p>
         </div>
         <form class="signup-form" action="https://dearajayi.substack.com/api/v1/free" method="post" target="substack-sink">
+          <input type="hidden" name="first_url" value="https://dearajayi.substack.com/" />
+          <input type="hidden" name="first_referrer" value="https://2o9ine.com" />
+          <input type="hidden" name="current_url" value="https://dearajayi.substack.com/" />
+          <input type="hidden" name="current_referrer" value="https://2o9ine.com" />
+          <input type="hidden" name="first_session_url" value="https://dearajayi.substack.com/" />
+          <input type="hidden" name="first_session_referrer" value="https://2o9ine.com" />
+          <input type="hidden" name="referral_code" />
+          <input type="hidden" name="source" value="embed" />
+          <input type="hidden" name="referring_pub_id" />
+          <input type="hidden" name="additional_referring_pub_ids" />
           <input id="nl-email" type="email" name="email" inputmode="email" autocomplete="email"
                  placeholder="your@email.com" aria-label="Email address" required>
           <button type="submit">Subscribe <span class="arw">→</span></button>
-          <iframe name="substack-sink" style="display:none"></iframe>
         </form>
+        <iframe name="substack-sink" style="display:none"></iframe>
       </div>
     </div></section>`;
   }
